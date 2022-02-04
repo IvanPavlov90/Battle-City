@@ -41,12 +41,22 @@ export default class Player extends Block {
     switch (key) {
       case "w":
         if (this.screenPositionY > 0) {
-          this.screenPositionY = this.screenPositionY - 1;
+          this.screenPositionY = this.screenPositionY - 2;
         }
         break;
       case "a":
         if (this.screenPositionX > 0) {
-          this.screenPositionX = this.screenPositionX - 1;
+          this.screenPositionX = this.screenPositionX - 2;
+        }
+        break;
+      case "d":
+        if (this.screenPositionX < 784) {
+          this.screenPositionX = this.screenPositionX + 2;
+        }
+        break;
+      case "s":
+        if (this.screenPositionY < 584 ) {
+          this.screenPositionY = this.screenPositionY + 2;
         }
         break;
       default:
