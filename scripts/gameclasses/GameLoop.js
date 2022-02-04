@@ -1,23 +1,20 @@
-import Player from "./Player.js";
-
 export default class GameLoop {
-  constructor(context, img) {
-    this.context = context;
+  constructor(player, img, context) {
+    this.player = player;
     this.img = img;
-  }  
+    this.context = context;
+    this.animate = this.animate.bind(this);
+  }
 
-  gameProcess () {
+  animate() {
     this.render();
-    this.update();  
-    window.requestAnimationFrame(this.gameProcess);
+    this.update();
+    window.requestAnimationFrame(this.animate);
   }
 
   render() {
-    const player = new Player("player", 392, 584, 0, 0, 16, 16, 1);
-    player.draw(this.img, this.context);
+    this.player.draw(this.img, this.context);
   }
 
-  update() {
-
-  }
+  update() {}
 }
